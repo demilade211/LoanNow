@@ -9,7 +9,7 @@ process.on('uncaughtException', err => {
     process.exit(1)
 })
 
-dotenv.config({path: "Backend/.env"});
+dotenv.config({path: "./.env"});
 connectDb();
 
 const PORT = process.env.PORT || 8000;
