@@ -4,9 +4,11 @@
   "description": "App to collect loans",
   "main": "server.js",
   "scripts": {
-    "start": "SET NODE_ENV=PRODUCTION& babel-node Backend/server.js",
-    "dev": "nodemon -L --exec babel-node Backend/server.js",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec babel-node Backend/server.js"
+    "ssr": "SET NODE_ENV=PRODUCTION& babel-node Backend/server.js",
+    "server": "nodemon -L --exec babel-node Backend/server.js",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec babel-node Backend/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run prod\" \"npm run client\""
   },
   "author": "Stutern team",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13"
   }

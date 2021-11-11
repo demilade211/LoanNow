@@ -21,6 +21,8 @@
   },
   "plugins": ["react", "react-hooks", "prettier", "import", "jsx-a11y"],
   "rules": {
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for":"off",
     "react/jsx-filename-extension": "off",
     "prettier/prettier": "off",
     "react/react-in-jsx-scope": "off",

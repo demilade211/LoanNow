@@ -1,6 +1,6 @@
-import imageOne from "../assets/image_one.png";
-import imageThree from "../assets/image_three.png";
 import imageTwo from "../assets/image_two.png";
+import imageOne from "../assets/imageOne.svg";
+import imageThree from "../assets/imageThree.svg";
 
 const homedata = [
   {

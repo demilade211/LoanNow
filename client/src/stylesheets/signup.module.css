@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 3rem;
+}
+
+.hero_container {
+  display: flex;
+  flex: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero_container::after{
+    content: '';
+    height: 20rem;
+    background-color: #F8F0FF;
+    width: 20rem;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.hero_container p{
+    line-height: 2rem;
+}
+
+.hero_container img {
+  object-fit: cover;
+  height: 80%;
+}
+
+.signup_container {
+  display: flex;
+  flex: 0.5;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup_container form{
+    border: 1px solid #CCCCCC;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_heading,
+.form_subheading {
+  text-align: center;
+}
+
+.form_subheading{
+    font-size: .5rem;
+}
+
+.input_container{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+     position: relative;
+}
+
+.input_container label{
+    font-size: .7rem;
+    font-weight: 400;
+       
+}
+
+.input_container input{
+    width: 15rem;
+    padding: .4rem .5rem;
+    border-radius: 2pt;
+    border: none;
+    background-color: #F5EEFD;
+    outline: none;
+
+}
+
+.reveal__password{
+    width: .8rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 1rem;
+}
+
+.revealPassword{
+    color: var(--tertiary-color);
+      width: .8rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 1rem;
+}
