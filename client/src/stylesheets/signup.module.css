@@ -1,0 +1,57 @@
+body{
+    margin: calc(var(--page-margin) - 3rem) var(--page-margin);
+}
+.left{
+    width: 30vw;
+    margin-left: var(--page-margin);
+    float: left;
+}
+.right{
+    float: right;
+    width: 40vw;
+    border: 1px solid rgb(211, 211, 211);
+    padding: calc(var(--page-padding) - 2.5rem) calc(var(--page-padding) - 2rem);
+    margin-bottom: calc(var(--page-margin) - 3rem);
+}
+h2{
+    text-align: var(--align);
+}
+p{
+    margin-left: var(--page-margin);
+    font-size: calc(var(--font-base) - 0.8rem);
+    margin-bottom: calc(var(--page-margin) - 3.2rem);
+}
+label{
+    font-size: calc(var(--font-base) - 0.7rem);
+    font-weight: 500;
+}
+input {
+    width: 99.8%;
+    height: 2rem;
+    border: none;
+    background-color: var(--underlay-color);
+    padding: 0.5rem 1.5rem;
+    margin-bottom: calc(var(--page-margin) - 3rem);
+    z-index: 1;
+}
+input:focus{
+    background-color: var(--underlay-color);
+    outline: none;
+}
+.btn{
+    position: absolute;
+    right: 12%;
+    margin-top: 1%;
+    background: transparent;
+    border: none;
+    color: rgb(190, 190, 190);
+    font-weight: 600;
+    z-index: 100;
+}
+.button{
+    text-align: center;
+}
+.button > button {
+    width: 90%;
+    font-weight: 600;
+}
