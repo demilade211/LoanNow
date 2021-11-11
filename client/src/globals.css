@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;600;700;900&display=swap');
 
 *,
 *::before,
@@ -12,8 +12,14 @@
 :root {
   --primary-color: #1E0448;
   --secondary-color: #FF9C27;
+  --mid-color: #FFAB48;
   --tertiary-color: #37AFCA;
   --underlay-color: #F5EEFD;
+  --page-padding: 3rem;
+  --page-margin: 4rem;
+  --font-base: 1.5rem;
+  --header-font: 2rem;
+  --align: center;
 }
 
 html {
