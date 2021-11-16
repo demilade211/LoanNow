@@ -12,7 +12,8 @@
 :root {
   --primary-color: #1E0448;
   --secondary-color: #FF9C27;
-  --mid-color: #FFAB48;
+  --distinct-color: #FFAB48;
+  --mid-color: #77EE83;
   --tertiary-color: #37AFCA;
   --underlay-color: #F5EEFD;
   --page-padding: 3rem;
