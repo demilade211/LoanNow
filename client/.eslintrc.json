@@ -21,12 +21,17 @@
   },
   "plugins": ["react", "react-hooks", "prettier", "import", "jsx-a11y"],
   "rules": {
+    "import/no-unresolved": [
+      2, 
+      { "caseSensitive": false }
+   ],
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for":"off",
     "react/jsx-filename-extension": "off",
     "prettier/prettier": "off",
     "react/react-in-jsx-scope": "off",
     "import/extensions": "off",
     "consistent-return": "off",
-    "import/no-unresolved": "error",
     "quotes": "off",
     "camelcase": "off",
     "import/order": [

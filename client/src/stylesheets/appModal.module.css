@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: .5;
+}
+
+.modal_box{
+    padding: 1rem;
+    border: 1px solid #CCCCCC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 20rem;
+}
+
+.heading{
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.subHeading{
+    font-size: .8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.message{
+    font-size: .8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}

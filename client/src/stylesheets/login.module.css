@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 3rem;
+}
+
+.login_container {
+  display: flex;
+  flex: 0.5;
+  justify-content: center;
+  align-items: center;
+}
+.form_heading{
+margin: 1rem 0;
+    text-align: center;
+}
+
+.login_container form{
+    border: 1px solid #CCCCCC;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input_container{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+     position: relative;
+}
+
+.input_container label{
+    font-size: .7rem;
+    font-weight: 400;
+       
+}
+
+.input_container input{
+    width: 15rem;
+    padding: .4rem .5rem;
+    border-radius: 2pt;
+    border: none;
+    background-color: #F5EEFD;
+    outline: none;
+
+}
+
+.input_container button{
+  outline: none;
+border: none;
+}
+
+.input_container p{
+    font-size: .5rem;
+}
+
+.reveal__password{
+    width: .8rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 1rem;
+}
+
+.revealPassword{
+    color: var(--tertiary-color);
+      width: .8rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 1rem;
+}
+
+.forgot_password{
+    cursor: pointer;
+    width: fit-content;
+    background: transparent;
+    color: var(--primary-color);
+    outline: none;
+    text-decoration: none;
+    font-size: .5rem;
+}
+
+@media screen and (max-width: 768px){
+  .hero_container{
+    flex: 0;
+    display: none;
+  }
+  .container{
+    padding: 0 2rem;
+  }
+  .container form{
+    margin-top: 5rem;
+  }
+}

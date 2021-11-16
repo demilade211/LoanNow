@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0.5;
+}
+
+
+.forgot_password_container{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.input_container{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+     position: relative;
+}
+
+.input_container label{
+    font-size: .6rem;
+    font-weight: 400;
+       
+}
+
+.input_container input{
+    width: 15rem;
+    padding: .4rem .5rem;
+    border-radius: 2pt;
+    border: none;
+    background-color: #F5EEFD;
+    outline: none;
+
+}
+.container form, .forgot_password_container form{
+    border: 1px solid #CCCCCC;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_heading,
+.form_subheading {
+  text-align: center;
+}
+
+.form_subheading{
+    font-size: .5rem;
+    margin-bottom: 1rem;
+}
+
+.form_heading{
+margin: 1rem 0 .5rem 0;
+}

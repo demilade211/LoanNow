@@ -1,0 +1,27 @@
+.menu__toggle{
+    color: var(--secondary-color);
+    width: 2rem;
+}
+
+.menuBox{
+    background-color: var(--primary-color);
+    height: 100%;
+    color: #fff;
+    padding: 2rem 1rem;
+}
+
+
+.logo_sidebar {
+  display: flex;
+  flex: 0.3;
+  width: 100%;
+}
+
+.list_options{
+    margin-top: 1rem; 
+}
+
+.listText{
+     margin-top: 2rem;
+     font-size: 1.2rem;
+}
