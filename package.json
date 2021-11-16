@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "ssr": "SET NODE_ENV=PRODUCTION& babel-node Backend/server.js",
-    "server": "nodemon -L --exec babel-node Backend/server.js",
+    "dev": "nodemon -L --exec babel-node Backend/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec babel-node Backend/server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run prod\" \"npm run client\""
+    "server": "concurrently \"npm run prod\" \"npm run client\""
   },
   "author": "Stutern team",
   "license": "ISC",

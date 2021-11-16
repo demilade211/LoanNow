@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {Link} from 'react-router-dom'
 import { container, modal_box, heading, subHeading, message } from '../stylesheets/appModal.module.css';
 import ClickButton from './Button'
