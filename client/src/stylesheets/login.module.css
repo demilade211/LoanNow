@@ -74,6 +74,12 @@ border: none;
 
 .forgot_password{
     cursor: pointer;
+    width: fit-content;
+    background: transparent;
+    color: var(--primary-color);
+    outline: none;
+    text-decoration: none;
+    font-size: .5rem;
 }
 
 @media screen and (max-width: 768px){

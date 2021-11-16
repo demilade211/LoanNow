@@ -26,6 +26,7 @@
 
 .hero_container p{
     line-height: 2rem;
+    text-align: center;
 }
 
 .hero_container img {
@@ -56,6 +57,7 @@
 
 .form_subheading{
     font-size: .5rem;
+    margin-bottom: 1rem;
 }
 
 .input_container{
