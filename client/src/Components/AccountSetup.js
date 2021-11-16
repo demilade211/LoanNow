@@ -1,6 +1,7 @@
 import { container, input_container, form_heading, form_subheading , forgot_password_container} from "../stylesheets/setup.module.css";
 import ClickButton from "./Button";
 
+
 export const ForgotPassword = () => {
   return (
     <div>
@@ -24,7 +25,6 @@ export const ForgotPassword = () => {
 
 export const VerifyAccount = () => {
   return (
- 
       <div className={container}>
         <form>
           <h3 className={form_heading}>Verify Account</h3>
