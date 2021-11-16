@@ -56,7 +56,6 @@ function Sidebar({ logo, menulist }) {
         </div>
       </List>
       <Divider />
-      
     </Box>
   );
 
