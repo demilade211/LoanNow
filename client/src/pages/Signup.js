@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
+
 import React, { useState } from "react";
 import eye from "../assets/eye.svg";
 import hero from "../assets/heroimage.svg";
@@ -69,13 +68,11 @@ function Signup() {
               type={passwordType ? "text" : "password"}
               name="password"
               id="password"
+              autoComplete
             />
-            <img
-              src={eye}
-              alt="password"
-              className={reveal}
-              onClick={handlePasswordReveal}
-            />
+            <button type="button" onClick={handlePasswordReveal}>
+              <img src={eye} alt="password" className={reveal} />
+            </button>
           </div>
           <div className={input_container}>
             <label htmlFor="confirmPassword">Confirm Password</label>
@@ -83,13 +80,11 @@ function Signup() {
               type={confirmPasswordType ? "text" : "password"}
               name="confirmPassword"
               id="confirmPassword"
+              autoComplete
             />
-            <img
-              src={eye}
-              alt="password"
-              className={reveal}
-              onClick={handleConfirmPasswordReveal}
-            />
+            <button type="button" onClick={handleConfirmPasswordReveal}>
+              <img src={eye} alt="password" className={reveal} />
+            </button>
           </div>
           <ClickButton variant="secondary" extended text="Proceed" />
         </form>
