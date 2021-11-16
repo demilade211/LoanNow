@@ -56,13 +56,7 @@ function Sidebar({ logo, menulist }) {
         </div>
       </List>
       <Divider />
-      <List>
-        {/* {["All mail", "Trash", "Spam"].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))} */}
-      </List>
+      
     </Box>
   );
 
