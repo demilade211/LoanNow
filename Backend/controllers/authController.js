@@ -77,7 +77,17 @@ export const loginUser = async(req,res,next)=>{
     }
 }
 
-
+// Get currently logged in user details   =>   /api/v1/me
+export const getUserProfile =  async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+            user: req.user
+        })
+    } catch (error) {
+        return next(error)
+    }
+}
 
 
 //To Logout /api/v1/logout

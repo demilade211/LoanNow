@@ -1,4 +1,3 @@
-import React from "react";
 import{ useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import appLogo from "../../assets/logo.svg";
@@ -35,7 +34,7 @@ const location = useLocation();
                 <ClickButton variant="secondary" narrow text="Log in" login />
               </Link>
             )}
-            {location.pathname === "/" && (
+            {location.pathname === "/home" && (
               <>
                 {" "}
                 <Link to="/signup">
