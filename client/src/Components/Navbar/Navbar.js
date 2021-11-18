@@ -6,21 +6,20 @@ import ClickButton from "../Button";
 import Sidebar from "./Sidebar";
 
 function Navbar() {
-
-
   const [match, setMatch] = useState(
     window.matchMedia("(max-width: 600px)").matches
   );
 
-const location = useLocation();
-
+  const location = useLocation();
 
   const handler = (e) => setMatch(e.matches);
   window.matchMedia("(max-width: 600px)").addEventListener("change", handler);
 
+  const menuList = [
+    { path: "/login", target: "Log in" },
+    { path: "/signup", target: "Sign up" },
+  ];
 
-  const menuList = ["Log in", "Sign up"];
-  
   return (
     <div className={container}>
       <Link to="/">
@@ -36,13 +35,12 @@ const location = useLocation();
             )}
             {location.pathname === "/" && (
               <>
-                {" "}
                 <Link to="/signup">
                   <ClickButton variant="secondary" narrow text="Sign up" />
                 </Link>
                 <Link to="/login">
                   <ClickButton variant="white" narrow text="Log in" login />
-                </Link>{" "}
+                </Link>
               </>
             )}
 

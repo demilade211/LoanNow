@@ -25,3 +25,8 @@
      margin-top: 2rem;
      font-size: 1.2rem;
 }
+
+.list_options a{
+    text-decoration: none;
+    color: #fff;
+}

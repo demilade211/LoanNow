@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import React, { useState } from "react";
 import { GoThreeBars } from "react-icons/go";
+import {Link} from 'react-router-dom'
 import {
   menu__toggle,
   menuBox,
@@ -15,6 +16,7 @@ import {
     list_options,
   listText
 } from "../../stylesheets/sidebar.module.css";
+
 
 function Sidebar({ logo, menulist }) {
   const [state, setState] = useState({
@@ -46,12 +48,14 @@ function Sidebar({ logo, menulist }) {
           <img src={logo} alt="logo" className={logo_sidebar} />
         </div>
         <div className={list_options}>
-          {menulist.map((text) => (
-            <ListItem button key={text}>
-                  <p className={listText}>
-                    {text}
-                  </p>
-            </ListItem>
+          {menulist.map((item) => (
+            <List>
+              <ListItem button key={item}>
+                <Link to={`${item.path}`}>
+                <p className={listText}>{item.target}</p>
+                </Link>
+              </ListItem>
+            </List>
           ))}
         </div>
       </List>

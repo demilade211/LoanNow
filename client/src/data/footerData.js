@@ -34,9 +34,9 @@ const footerData = [
     id: 4,
     Header: "Address",
     subLinks: [
-      { title: "46, Manchester Avenue, San Francisco, CA, USA", link: "/" },
-      { title: "info@loannow.com", link: "/" },
-      { title: "+2349023456789", link: "/" },
+      {id:1, title: "46, Manchester Avenue, San Francisco, CA, USA", link: "/" },
+      {id:2, title: "info@loannow.com", link: "/" },
+      {id:3,  title: "+2349023456789", link: "/" },
     ],
   },
 ];
