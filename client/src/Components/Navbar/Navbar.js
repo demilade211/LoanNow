@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import{ useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import appLogo from "../../assets/logo.svg";
 import { container, logo, btns } from "../../stylesheets/navbar.module.css";
@@ -33,7 +33,7 @@ function Navbar() {
                 <ClickButton variant="secondary" narrow text="Log in" login />
               </Link>
             )}
-            {location.pathname === "/" && (
+            {location.pathname === "/home" && (
               <>
                 <Link to="/signup">
                   <ClickButton variant="secondary" narrow text="Sign up" />

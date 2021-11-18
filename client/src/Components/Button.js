@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styles from '../stylesheets/button.module.css'
 
-const ClickButton = ({ variant, extended, narrow, text, login }) => {
+const ClickButton = ({ variant, extended, narrow, text, login,click }) => {
 
     let btn_style = "init--narrow";
     const btn__color = variant;
@@ -24,7 +24,7 @@ const ClickButton = ({ variant, extended, narrow, text, login }) => {
   if(login) setStyle = [styles[btn_style], styles.login].join(' ');
     return (
       
-        <button type="submit" className={setStyle}>
+        <button type="submit" className={setStyle} onClick={click} >
       {text}
     </button>
   );

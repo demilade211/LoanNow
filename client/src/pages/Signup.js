@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
+import {useAlert} from "react-alert"
+import {useDispatch,useSelector} from "react-redux"
+import { registerUser,clearError  } from '../actions/userActions'
 import eye from "../assets/eye.svg";
 import hero from "../assets/heroimage.svg";
 import { VerifyAccount } from "../Components/AccountSetup";
@@ -15,12 +18,58 @@ import {
   revealPassword,
 } from "../stylesheets/signup.module.css";
 
-function Signup() {
-  const success = false;
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+function Signup({history}) {
   const user_verify = false;
+  const alert = useAlert();
+  const dispatch = useDispatch()
+  
+  const [success, setSuccess] = useState(false)
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState('')
+  const [user, setUser] = useState({
+    email: '',
+    phoneNumber: '',
+    password: '',
+    confirmPassword: ''
+  })
   const [reveal, setReveal] = useState(reveal__password);
   const [passwordType, setPasswordType] = useState(false);
   const [confirmPasswordType, setConfirmPasswordType] = useState(false);
+
+  const name = `${firstName} ${lastName}`
+
+  const {email,phoneNumber,password,confirmPassword} = user;
+
+  const {isAuthenticated,error} = useSelector(state=>state.authReducer)
+
+  useEffect(() => {
+
+    if(isAuthenticated){
+      setSuccess(true)
+    }
+
+    if (error) {
+        alert.error(error);
+        dispatch(clearError());
+    }
+}, [dispatch,alert,isAuthenticated,error,history])
+
+const submitHandler = (e)=>{
+    e.preventDefault();
+
+    const  form ={name,...user}
+
+    dispatch(registerUser(form))
+}
+
+const onChange = (e)=>{
+    setUser({
+        ...user,
+        [e.target.name]:e.target.value
+    })
+}
 
   const handlePasswordReveal = () => {
     setReveal(revealPassword);
@@ -31,6 +80,7 @@ function Signup() {
     setReveal(revealPassword);
     setConfirmPasswordType(!confirmPasswordType);
   };
+  
   return (
     <div className={container}>
       <div className={hero_container}>
@@ -55,13 +105,13 @@ function Signup() {
         <Appmodal
           title="Account Creation Success!"
           text="Congratulations, you are one click away from getting attractive loan offers."
-          path='/dashboard'
+          path='/'
           target='Go to Dashboard'
         />
       )}
       {!user_verify && !success && (
         <div className={signup_container}>
-          <form>
+          <form onSubmit = {submitHandler}>
             <p className={form_heading}>Create an account</p>
 
             <p className={form_subheading}>
@@ -69,31 +119,33 @@ function Signup() {
             </p>
             <div className={input_container}>
               <label htmlFor="firstname">First Name</label>
-              <input type="text"  id="firstname" />
+              <input type="text"  id="firstname" onChange={(e)=>setFirstName(e.target.value)} />
             </div>
 
             <div className={input_container}>
               <label htmlFor="lastname">Last Name</label>
-              <input type="text"  id="lastname" />
+              <input type="text"  id="lastname" onChange={(e)=>setLastName(e.target.value)}/>
             </div>
 
             <div className={input_container}>
               <label htmlFor="mobile">Mobile Number</label>
-              <input type="text"  id="mobile" />
+              <input type="tel" name="phoneNumber" value={phoneNumber} id="mobile" onChange={onChange} />
             </div>
 
             <div className={input_container}>
-              <label htmlFor="email">Email</label>
-              <input type="text"  id="email" />
+              <label htmlFor="email" >Email</label>
+              <input type="text" name="email" value={email} id="email" onChange={onChange} />
             </div>
 
             <div className={input_container}>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" >Password</label>
               <input
                 type={passwordType ? "text" : "password"}
               
                 id="password"
-                autoComplete
+                name="password"
+                value = {password}
+                onChange={onChange}
               />
               <button type="button" onClick={handlePasswordReveal}>
                 <img src={eye} alt="password" className={reveal} />
@@ -105,7 +157,9 @@ function Signup() {
                 type={confirmPasswordType ? "text" : "password"}
                 
                 id="confirmPassword"
-                autoComplete
+                name= "confirmPassword"
+                value = {confirmPassword}
+                onChange={onChange}
               />
               <button type="button" onClick={handleConfirmPasswordReveal}>
                 <img src={eye} alt="password" className={reveal} />
