@@ -10,6 +10,15 @@
     padding: 2rem 1rem;
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .MuiBackdrop-root{
+display: none;
+}
 
 .logo_sidebar {
   display: flex;
@@ -24,4 +33,9 @@
 .listText{
      margin-top: 2rem;
      font-size: 1.2rem;
+}
+
+.list_options a{
+    text-decoration: none;
+    color: #fff;
 }

@@ -11,7 +11,7 @@ function Footer() {
             <div className={heading}>{data.Header}</div>
             <div className={subLinks}>
                       {data.subLinks.map((val, index) => (
-                        <ul className={[`link${index}`, links].join(', ')} key={ val.id}>
+                        <ul className={[`link${index}`, links].join(', ')} key={val.id}>
                   <li className={link}>{val.title}</li>
                 </ul>
               ))}
