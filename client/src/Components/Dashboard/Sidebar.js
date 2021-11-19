@@ -16,7 +16,10 @@ import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useAlert } from "react-alert";
 import { FiSliders as SettingsIcon } from "react-icons/fi";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../actions/userActions";
 import { ReactComponent as DashboardIcon } from "../../assets/DashboardIcon.svg";
 import { ReactComponent as LoansIcon } from "../../assets/LoanIcon.svg";
 import Logo from "../../assets/logo.svg";
@@ -40,6 +43,7 @@ import {
   grid_item
 } from "../../stylesheets/dashboard.module.css";
 import ClickButton from "../Button";
+
 
 const drawerWidth = 240;
 
@@ -116,12 +120,22 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [bg, setbg] = React.useState({});
   const [color, setcolor] = React.useState({});
  const [match, setMatch] = React.useState(
    window.matchMedia("(max-width: 700px)").matches
  );
+  
+  
+    const alert = useAlert();
+  const dispatch = useDispatch();
+  
+
+    const logoutHandler = () => {
+      dispatch(logOut());
+      alert.success("Logged out successfully.");
+    };
   
   const handler = (e) => setMatch(e.matches);
   window.matchMedia("(max-width: 700px)").addEventListener("change", handler);
@@ -253,11 +267,11 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {[{ label: "Logout", path: "/logout", Icon: LogoutIcon }].map(
+          {[{ label: "Logout", path: "/logout", Icon: LogoutIcon, click:logoutHandler }].map(
             (item) => {
               const { Icon } = item;
               return (
-                <ListItem button key={item.label} style={{ marginTop: "9rem" }}>
+                <ListItem button key={item.label} style={{ marginTop: "9rem" }} onClick={item.click}>
                   <ListItemIcon>
                     <Icon />
                   </ListItemIcon>

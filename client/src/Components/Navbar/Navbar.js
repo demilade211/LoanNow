@@ -22,9 +22,9 @@ function Navbar() {
 
   return (
     <>
-      {location.pathname !== "/dashboard" && (
+      {location.pathname !== "/" && (
         <div className={container}>
-          <Link to="/">
+          <Link to="/home">
             <img src={appLogo} alt="logo" className={logo} />
           </Link>
           {!match ? (
