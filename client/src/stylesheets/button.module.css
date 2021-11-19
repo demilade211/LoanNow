@@ -51,12 +51,40 @@ button{
     border: 1px solid var(--secondary-color);
     border-radius: .4rem;
 }
+.neon--extended{
+    background: #77EE83;
+   color: #fff;
+     padding: .6rem 4rem;
+    border: 1px solid #77EE83;
+    border-radius: .4rem;
+}
+.ocean--extended{
+    background: #69C3D7;
+   color: #fff;
+     padding: .6rem 4rem;
+    border: 1px solid #69C3D7;
+    border-radius: .4rem;
+}
 
 .secondary--narrow{
    background: var(--secondary-color);
    color: #fff;
     padding: .6rem 2.3rem;
     border: 1px solid var(--secondary-color);
+    border-radius: .2rem;
+}
+.neon--narrow{
+   background: #77EE83;
+   color: #fff;
+    padding: .6rem 2.3rem;
+    border: 1px solid #77EE83;
+    border-radius: .2rem;
+}
+.ocean--narrow{
+   background: #69C3D7;
+   color: #fff;
+    padding: .6rem 2.3rem;
+    border: 1px solid #69C3D7;
     border-radius: .2rem;
 }
 

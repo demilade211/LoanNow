@@ -10,6 +10,15 @@
     padding: 2rem 1rem;
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .MuiBackdrop-root{
+display: none;
+}
 
 .logo_sidebar {
   display: flex;

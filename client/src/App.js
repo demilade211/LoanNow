@@ -4,6 +4,7 @@ import { loadUser } from "./actions/userActions";
 import Navbar from "./Components/Navbar/Navbar.js";
 import ProtectedRoute from "./Components/routes/ProtectedRoutes.js";
 import TestPage from "./Components/TestPage.js";
+import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup";
@@ -27,7 +28,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login}/>
-          
+          <Route exact path='/dashboard' component={Dashboard}/>
         </Switch>
       </BrowserRouter>
     </div>
