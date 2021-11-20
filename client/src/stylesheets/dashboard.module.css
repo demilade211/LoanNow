@@ -20,6 +20,11 @@
     fill: #F5EEFD;;
 }
 
+.menu_icon .logo_icon, .notifIcon{
+    width: 2rem !important;
+    height: 1.5rem !important;
+}
+
 .logout_text{
     color: "#FF0000" ;
 }
@@ -27,6 +32,7 @@
 .notifIcon{
     position: absolute;
     right: 1rem;
+    cursor: pointer;
 }
 
 
@@ -97,6 +103,11 @@ font-size: 1rem;
 
 .recent p:not(:first-child){
     font-size: .6rem;
+}
+
+.logout_container{
+    position: absolute !important;
+    bottom: 2rem !important;
 }
 
 @media (min-width: 768px){

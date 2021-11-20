@@ -1,6 +1,6 @@
 .menu__toggle{
     color: var(--secondary-color);
-    width: 2rem;
+  
 }
 
 .menuBox{
@@ -23,7 +23,7 @@ display: none;
 .logo_sidebar {
   display: flex;
   flex: 0.3;
-  width: 100%;
+  width: 70%;
 }
 
 .list_options{

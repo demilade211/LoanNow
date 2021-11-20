@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
+import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import React, { useState } from "react";
-import { GoThreeBars } from "react-icons/go";
 import {Link} from 'react-router-dom'
 import {
   menu__toggle,
@@ -65,9 +64,8 @@ function Sidebar({ logo, menulist }) {
 
   return (
     <div>
-      <Button onClick={toggleDrawer("left", true)}>
-        <GoThreeBars className={menu__toggle} />
-      </Button>
+      <MenuIcon className={menu__toggle} onClick={toggleDrawer("left", true)} />
+
       <SwipeableDrawer
         anchor="left"
         open={state.left}

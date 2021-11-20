@@ -19,6 +19,7 @@ import * as React from "react";
 import { useAlert } from "react-alert";
 import { FiSliders as SettingsIcon } from "react-icons/fi";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { logOut } from "../../actions/userActions";
 import { ReactComponent as DashboardIcon } from "../../assets/DashboardIcon.svg";
 import { ReactComponent as LoansIcon } from "../../assets/LoanIcon.svg";
@@ -40,7 +41,9 @@ import {
   apply,
   cta,
   recent,
-  grid_item
+  grid_item,
+  logo_icon,
+  logout_container,
 } from "../../stylesheets/dashboard.module.css";
 import ClickButton from "../Button";
 
@@ -120,7 +123,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [bg, setbg] = React.useState({});
   const [color, setcolor] = React.useState({});
  const [match, setMatch] = React.useState(
@@ -211,7 +214,9 @@ export default function MiniDrawer() {
             }}
             className={iconhandler}
           >
-            <MenuIcon />
+            <Link to='/home'>
+            <MenuIcon className={logo_icon}/>
+            </Link>
           </IconButton>
           <Typography
             variant="h7"
@@ -266,7 +271,7 @@ export default function MiniDrawer() {
           })}
         </List>
         <Divider />
-        <List>
+        <List className={logout_container}>
           {[{ label: "Logout", path: "/logout", Icon: LogoutIcon, click:logoutHandler }].map(
             (item) => {
               const { Icon } = item;
