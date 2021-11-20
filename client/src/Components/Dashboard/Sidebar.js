@@ -2,6 +2,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Grid } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
+import Avatar from '@mui/material/Avatar';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,7 +19,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useAlert } from "react-alert";
 import { FiSliders as SettingsIcon } from "react-icons/fi";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { logOut } from "../../actions/userActions";
 import { ReactComponent as DashboardIcon } from "../../assets/DashboardIcon.svg";
 import { ReactComponent as LoansIcon } from "../../assets/LoanIcon.svg";
@@ -120,7 +121,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [bg, setbg] = React.useState({});
   const [color, setcolor] = React.useState({});
  const [match, setMatch] = React.useState(
@@ -129,17 +130,18 @@ export default function MiniDrawer() {
   
   
     const alert = useAlert();
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
   
 
     const logoutHandler = () => {
       dispatch(logOut());
       alert.success("Logged out successfully.");
     };
-  
+    
+    const {user}  = useSelector(state => state.authReducer)
   const handler = (e) => setMatch(e.matches);
   window.matchMedia("(max-width: 700px)").addEventListener("change", handler);
-  const userName = "Peju";
+  const userName = user.name;
 
   const loanDetails = [
     { label: "Amount Taken", price: "₦00,000" },
@@ -213,11 +215,16 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
+          <Avatar
+            alt="profile pic"
+            src={user.avatar.url}
+            sx={{ marginLeft:"10px"}}
+          />
           <Typography
-            variant="h7"
+            variant="p"
             noWrap
             component="div"
-            style={{ marginLeft: "1rem" }}
+            style={{ marginLeft: "0.7rem" }}
           >
             Hello, {userName}
           </Typography>
@@ -249,7 +256,7 @@ export default function MiniDrawer() {
                 button
                 key={menu.label}
                 className={menuItem}
-                style={{ ...bg[label], marginTop: "3rem" }}
+                style={{ ...bg[label], marginTop: "2rem" }}
                 onMouseEnter={() => handleMouseEnter(label)}
                 onMouseLeave={() => handleMouseLeave(label)}
               >
@@ -320,7 +327,7 @@ export default function MiniDrawer() {
                   <p>Loan Details</p>
                 </div>
                 <div className={body}>
-                  <Grid container spacing={4}>
+                  <Grid container spacing={3.7}>
                     {loanDetails.map((item) => (
                       <>
                         <Grid
