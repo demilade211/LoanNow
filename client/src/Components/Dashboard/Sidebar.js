@@ -259,7 +259,7 @@ export default function MiniDrawer() {
             return (
               <ListItem
                 button
-                key={`${menu.label}dhgdgdgfg`}
+                key={`${menu.label}dhgdgdgfgfi`}
                 className={menuItem}
                 style={{ ...bg[label], marginTop: "2rem" }}
                 onMouseEnter={() => handleMouseEnter(label)}
