@@ -4,7 +4,7 @@
   "description": "App to collect loans",
   "main": "server.js",
   "scripts": {
-    "ssr": "SET NODE_ENV=PRODUCTION& babel-node Backend/server.js",
+    "start": "SET NODE_ENV=PRODUCTION& babel-node Backend/server.js",
     "dev": "nodemon -L --exec babel-node Backend/server.js",
     "prod": "SET NODE_ENV=PRODUCTION& nodemon --exec babel-node Backend/server.js",
     "client": "npm start --prefix client",
