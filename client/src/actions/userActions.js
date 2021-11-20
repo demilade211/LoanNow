@@ -1,12 +1,15 @@
 import axios from "axios";
 import * as types from "../types/userTypes";
 
+const Axios = axios.create({
+    baseURL: "https://loannow-api0.herokuapp.com/api/v1",
+})
 // Login
 export const login = (email,password) => async (dispatch) =>{
      try {
          dispatch({type: types.LOGIN_REQUEST })
 
-         const {data} = await axios.post("/api/v1/login",{email,password})
+         const {data} = await Axios.post("/login",{email,password})
 
          dispatch({
              type: types.LOGIN_SUCCESS,
@@ -25,7 +28,7 @@ export const registerUser = (userData) => async (dispatch) =>{
     try {
         dispatch({type: types.REGISTER_USER_REQUEST })
 
-        const {data} = await axios.post("/api/v1/register",userData)
+        const {data} = await Axios.post("/register",userData)
 
         dispatch({
             type: types.REGISTER_USER_SUCCESS,
@@ -44,7 +47,7 @@ export const loadUser = () => async (dispatch) =>{
     try {
         dispatch({type: types.LOAD_USER_REQUEST })
 
-        const {data} = await axios.get("/api/v1/me")
+        const {data} = await Axios.get("/me")
 
         dispatch({
             type: types.LOAD_USER_SUCCESS,
@@ -81,7 +84,7 @@ export const loadUser = () => async (dispatch) =>{
 export const logOut = () => async (dispatch) =>{
     try {
 
-        await axios.get("/api/v1/logout")
+        await Axios.get("/logout")
 
         dispatch({
             type: types.LOGOUT_SUCCESS,

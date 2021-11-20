@@ -78,6 +78,5 @@
     "husky": "^7.0.0",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1"
-  },
-  "proxy": "https://loannow-api0.herokuapp.com/"
+  }
 }
