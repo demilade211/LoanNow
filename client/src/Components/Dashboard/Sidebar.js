@@ -20,6 +20,7 @@ import * as React from "react";
 import { useAlert } from "react-alert";
 import { FiSliders as SettingsIcon } from "react-icons/fi";
 import { useDispatch,useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { logOut } from "../../actions/userActions";
 import { ReactComponent as DashboardIcon } from "../../assets/DashboardIcon.svg";
 import { ReactComponent as LoansIcon } from "../../assets/LoanIcon.svg";
@@ -41,7 +42,9 @@ import {
   apply,
   cta,
   recent,
-  grid_item
+  grid_item,
+  logo_icon,
+  logout_container,
 } from "../../stylesheets/dashboard.module.css";
 import ClickButton from "../Button";
 
@@ -213,7 +216,9 @@ export default function MiniDrawer() {
             }}
             className={iconhandler}
           >
-            <MenuIcon />
+            <Link to='/home'>
+            <MenuIcon className={logo_icon}/>
+            </Link>
           </IconButton>
           <Avatar
             alt="profile pic"
@@ -254,7 +259,7 @@ export default function MiniDrawer() {
             return (
               <ListItem
                 button
-                key={menu.label}
+                key={`${menu.label}dhgdgdgfgfi`}
                 className={menuItem}
                 style={{ ...bg[label], marginTop: "2rem" }}
                 onMouseEnter={() => handleMouseEnter(label)}
@@ -273,12 +278,12 @@ export default function MiniDrawer() {
           })}
         </List>
         <Divider />
-        <List>
+        <List className={logout_container}>
           {[{ label: "Logout", path: "/logout", Icon: LogoutIcon, click:logoutHandler }].map(
             (item) => {
               const { Icon } = item;
               return (
-                <ListItem button key={item.label} style={{ marginTop: "9rem" }} onClick={item.click}>
+                <ListItem button key={`${item.label}vcvcfdgdgd`} style={{ marginTop: "9rem" }} onClick={item.click}>
                   <ListItemIcon>
                     <Icon />
                   </ListItemIcon>

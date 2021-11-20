@@ -14,7 +14,11 @@
   --secondary-color: #FF9C27;
   --tertiary-color: #37AFCA;
   --underlay-color: #F5EEFD;
+   touch-action: pan-x pan-y;
+  height: 100%
 }
+
+  
 
 html {
   box-sizing: border-box;
@@ -33,6 +37,10 @@ body {
 
 body::-webkit-scrollbar{
     display: none;
+}
+
+a{
+  text-decoration: none !important;
 }
 
 
