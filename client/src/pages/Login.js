@@ -5,6 +5,7 @@ import { login,clearError  } from '../actions/userActions'
 import eye from "../assets/eye.svg";
 import { ForgotPassword } from "../Components/AccountSetup";
 import ClickButton from "../Components/Button";
+import MetaData from "../Components/MetaData";
 import {
   container,
   form_heading,
@@ -60,9 +61,13 @@ function Login({history}) {
     return (
       <>
         {forgotPassword ? (
+          <>
+          <MetaData title="Forgot password"/>
           <ForgotPassword />
+          </>
         ) : (
           <div className={container}>
+            <MetaData title="Login"/>
             <div className={login_container}>
               <form onSubmit={submitHandler}>
                 <h3 className={form_heading}>Login to your account</h3>

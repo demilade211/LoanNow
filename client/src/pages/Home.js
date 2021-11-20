@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import ClickButton from "../Components/Button";
 import Footer from "../Components/Footer";
+import MetaData from "../Components/MetaData";
 import homedata from "../data/homeData";
 import {
   homeContainer,
@@ -21,6 +22,7 @@ const Home = () => {
   const styles = [container, section].join(" ");
   return (
     <div className={homeContainer}>
+      <MetaData title="Collect quick loans"/>
       {homedata.map((data) => (
         <div className={styles} key={data.id}>
           <div className={image__container}>

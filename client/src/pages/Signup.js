@@ -7,6 +7,7 @@ import hero from "../assets/heroimage.svg";
 import { VerifyAccount } from "../Components/AccountSetup";
 import Appmodal from '../Components/Appmodal.js'
 import ClickButton from "../Components/Button";
+import MetaData from "../Components/MetaData";
 import {
   container,
   hero_container,
@@ -83,6 +84,7 @@ const onChange = (e)=>{
   
   return (
     <div className={container}>
+      <MetaData title="Sign up"/>
       <div className={hero_container}>
         <img src={hero} alt="loan now" />
         {!success && !user_verify && (
