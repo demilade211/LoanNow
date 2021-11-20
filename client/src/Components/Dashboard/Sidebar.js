@@ -259,7 +259,7 @@ export default function MiniDrawer() {
             return (
               <ListItem
                 button
-                key={menu.label}
+                key={`${menu.label}dhgdgdgfg`}
                 className={menuItem}
                 style={{ ...bg[label], marginTop: "2rem" }}
                 onMouseEnter={() => handleMouseEnter(label)}
@@ -283,7 +283,7 @@ export default function MiniDrawer() {
             (item) => {
               const { Icon } = item;
               return (
-                <ListItem button key={item.label} style={{ marginTop: "9rem" }} onClick={item.click}>
+                <ListItem button key={`${item.label}vcvcfdgdgd`} style={{ marginTop: "9rem" }} onClick={item.click}>
                   <ListItemIcon>
                     <Icon />
                   </ListItemIcon>
