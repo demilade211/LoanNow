@@ -1,9 +1,5 @@
-.dashboard {
-    width: 100vw;
-    height: 100vh;
-}
 .sideNav{
-    width: 22vw;
+    width: 20%;
     float: left;
     background-color: var(--primary-color);
     padding: 1rem 0.5rem;
@@ -91,7 +87,7 @@ li > a:hover > img {
     background-color: var(--primary-color);
     border: none;
     border-radius: 10px;
-    width: 23rem;
+    width: 94%;
     height: 11rem;
     margin: 0 1rem;
     padding: 0.5rem 1rem;
@@ -160,4 +156,38 @@ li > a:hover > img {
 }
 .recent > p {
     font-size: 1rem;
+}
+@media all and (max-width: 1180px){
+    .top > .bell{
+        margin-left: 30rem;
+    }
+    .sideNav > img {
+        width: 80%;
+    }
+    .grid{
+        margin-bottom: 2.5rem;
+    }
+    .next > h3 {
+        font-size: 1.2rem;
+    }
+    .next > p, .amount > p{
+        font-size: 0.7rem;
+    }
+    .btn > button{
+        height: 1.8rem;
+        width: 7rem;
+    }
+    .btn1, .btn2, .btn3 {
+        width: 7rem;
+        height: 1.8rem;
+    }
+    .btn1{
+        margin: 1rem 5.5rem 1rem 1rem;
+    }
+    .btn2{
+        margin: 1rem 5.5rem;
+    }
+    .btn3{
+        margin: 1rem 1rem 1rem 5.5rem;
+    }
 }
