@@ -3,7 +3,7 @@ import * as types from "../types/userTypes";
 const initialState = {
     user: {}
 };
- const authReducer = (state = initialState,action)=>{
+ export const authReducer = (state = initialState,action)=>{
     switch (action.type) {
         case types.LOGIN_REQUEST:
         case types.REGISTER_USER_REQUEST:
@@ -65,4 +65,40 @@ const initialState = {
     }
 }
 
-export default authReducer;
+export const forgotPasswordReducer = (state = {},action)=>{
+    switch (action.type) {
+        case types.FORGOT_PASSWORD_REQUEST:
+        case types.NEW_PASSWORD_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            }
+        case types.FORGOT_PASSWORD_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                message: action.payload
+            }
+
+        case types.NEW_PASSWORD_SUCCESS:
+            return {
+                ...state,
+                sucess: action.payload
+            }
+        case types.FORGOT_PASSWORD_FAIL:
+        case types.NEW_PASSWORD_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case types.CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }    
+        default:
+            return state;
+    }
+}
