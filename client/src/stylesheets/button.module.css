@@ -87,7 +87,20 @@ button{
     border: 1px solid #69C3D7;
     border-radius: .2rem;
 }
-
+.unclicked{
+    background: #564376;
+    color: #fff;
+    padding: .6rem 2.3rem;
+    border: none;
+    border-radius: .2rem;
+}
+.clicked{
+    background: #fff;
+    color: #564376;
+    padding: .6rem 2.3rem;
+    border: none;
+    border-radius: .2rem;
+}
 .login{
     margin-left: 1rem;
 }

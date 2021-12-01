@@ -1,0 +1,58 @@
+.main_container{
+    border: 1px solid #CCCCCC;
+    width: 95%;
+    margin: 30px 20px;
+    padding: 30px;
+ 
+}
+.main_container_centered{
+    border: 1px solid #CCCCCC;
+    width: 95%;
+    margin: 30px 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form_container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35% 35%;
+    justify-content: space-evenly;
+    grid-row-gap: 50px;
+}
+.table_container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35% 35%;
+    justify-content: space-evenly;
+    grid-row-gap: 10px;
+}
+.input_style{
+    width: 14.7rem;
+    padding: 15px;
+    border-radius: 2pt;
+    border:  1px solid #564376;
+    font-size: 0.8rem;
+    
+
+}
+.paragraph{
+    font-size: 0.rem;
+    color: #564376;
+}
+@media screen and (max-width: 500px) {
+    .loan_buttons{
+        flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .form_container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        grid-row-gap: 30px;
+    }
+  }

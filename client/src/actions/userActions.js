@@ -42,6 +42,44 @@ export const registerUser = (userData) => async (dispatch) =>{
     }
 }
 
+// Request loan
+export const requestLoan = (userData) => async (dispatch) =>{
+    try {
+        dispatch({type: types.APPLY_FOR_LOAN_REQUEST })
+
+        const {data} = await Axios.post("/loan",userData)
+
+        dispatch({
+            type: types.APPLY_FOR_LOAN_SUCCESS,
+            payload: data.success
+       })
+    } catch (error) {
+        dispatch({
+            type: types.APPLY_FOR_LOAN_FAIL,
+            payload: error.response.data.errMessage
+        })
+    }
+}
+
+// Get loan history
+export const getLoanHistory = () => async (dispatch) =>{
+    try {
+        dispatch({type: types.GET_LOAN_HISTORY_REQUEST })
+
+        const {data} = await Axios.get("/loan")
+
+        dispatch({
+            type: types.GET_LOAN_HISTORY_SUCCESS,
+            payload: data.getLoanHistory
+       })
+    } catch (error) {
+        dispatch({
+            type: types.GET_LOAN_HISTORY_FAIL,
+            payload: error.response.data.errMessage
+        })
+    }
+}
+
 // Load user
 export const loadUser = () => async (dispatch) =>{
     try {
@@ -79,6 +117,56 @@ export const loadUser = () => async (dispatch) =>{
 //         })
 //     }
 // }
+
+// Forgot password
+export const forgotPassword = (email) => async (dispatch) =>{
+    try {
+        dispatch({type: types.FORGOT_PASSWORD_REQUEST })
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const {data} = await axios.post("/api/v1/password/forgot",email,config)
+
+        dispatch({
+            type: types.FORGOT_PASSWORD_SUCCESS,
+            payload: data.message
+       })
+    } catch (error) {
+        dispatch({
+            type: types.FORGOT_PASSWORD_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+
+// Reset password
+export const resetPassword = (token,passwords) => async (dispatch) =>{
+    try {
+        dispatch({type: types.NEW_PASSWORD_REQUEST })
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const {data} = await axios.put(`/api/v1/password/reset/${token}`,passwords,config)
+
+        dispatch({
+            type: types.NEW_PASSWORD_SUCCESS,
+            payload: data.success
+       })
+    } catch (error) {
+        dispatch({
+            type: types.NEW_PASSWORD_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
 
 // Logout user
 export const logOut = () => async (dispatch) =>{

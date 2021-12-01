@@ -26,6 +26,8 @@ const ClickButton = ({ variant, extended, narrow, text, login,click }) => {
       btn_style = "ocean--extended";
     } else if (btn__color === "ocean" && narrow) {
       btn_style = "ocean--narrow";
+    }else if (btn__color === "unclicked") {
+      btn_style = "unclicked";
     }
   let setStyle = styles[btn_style];
 

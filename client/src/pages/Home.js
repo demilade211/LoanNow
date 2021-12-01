@@ -36,7 +36,7 @@ const Home = () => {
               <p className={title}>{data.title}</p>
               <p className={subtitle}>{data.subTitle}</p>
               <Link to='/signup'>
-              <ClickButton text="Get Started" variant="secondary" extended />
+                <ClickButton text="Get Started" variant="secondary" extended />
               </Link>
             </div>
           </div>

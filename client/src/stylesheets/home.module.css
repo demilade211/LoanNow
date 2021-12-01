@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 4rem 3rem;
 }
 
 .section {
@@ -13,8 +13,11 @@
 }
 
 .image__container {
+  margin: 10px 20px;
   display: flex;
   flex: 0.5;
+  justify-content: center;
+  align-items: center;
 }
 
 .image_inner_container{
@@ -43,18 +46,11 @@ justify-content: center;
 }
 
 .attention__draw {
-  background: var(--primary-color);
-  color: var(--underlay-color);
-  font-size: 1rem;
-  border-radius: 2rem;
-  padding: 0.5rem 2rem;
-  margin: 0;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  color:#B2132F;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
 .title{

@@ -65,6 +65,43 @@ const initialState = {
     }
 }
 
+export const userReducer = (state = {},action)=>{
+    switch (action.type) {
+        case types.APPLY_FOR_LOAN_REQUEST:
+        case types.GET_LOAN_HISTORY_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            }
+        case types.GET_LOAN_HISTORY_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                loanHistory: action.payload
+            }
+        case types.APPLY_FOR_LOAN_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isSuccessful: action.payload
+            }
+        case types.APPLY_FOR_LOAN_FAIL:
+        case types.GET_LOAN_HISTORY_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case types.CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }    
+        default:
+            return state;
+    }
+}
+
 export const forgotPasswordReducer = (state = {},action)=>{
     switch (action.type) {
         case types.FORGOT_PASSWORD_REQUEST:

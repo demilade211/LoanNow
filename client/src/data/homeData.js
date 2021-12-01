@@ -1,6 +1,7 @@
-import imageTwo from "../assets/image_two.png";
-import imageOne from "../assets/imageOne.svg";
-import imageThree from "../assets/imageThree.svg";
+import imageThree from "../assets/Female depositing cash in bank.svg";
+import imageTwo from "../assets/Photo illustration concept of calculation with calculator image.svg";
+import imageOne from "../assets/Wallet.svg";
+
 
 const homedata = [
   {

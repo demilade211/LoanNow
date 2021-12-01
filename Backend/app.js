@@ -2,6 +2,7 @@ import  express from "express";
 import morgan from "morgan"
 import cookieParser from "cookie-parser"
 import auth from "./routes/auth";
+import loan from "./routes/loan";
 import errorMiddleware from "./Middlewares/errors"
 import cors from "cors";
 
@@ -16,6 +17,7 @@ app.use(cookieParser())
 
 
 app.use('/api/v1',auth);
+app.use('/api/v1',loan);
 
 //Middleware to handle errors
 app.use(errorMiddleware);

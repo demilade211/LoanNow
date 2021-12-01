@@ -1,10 +1,8 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Grid } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import Avatar from '@mui/material/Avatar';
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
@@ -17,7 +15,6 @@ import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { useAlert } from "react-alert";
 import { FiSliders as SettingsIcon } from "react-icons/fi";
 import { useDispatch,useSelector } from "react-redux";
 import { logOut } from "../../actions/userActions";
@@ -35,16 +32,10 @@ import {
   menuItem,
   logout_text,
   notifIcon,
-  dash_container,
-  heading,
-  body,
-  apply,
-  cta,
-  recent,
-  grid_item
 } from "../../stylesheets/dashboard.module.css";
-import ClickButton from "../Button";
+import DashboardHome from "./DashboardHome";
 
+/* eslint-disable react/prop-types */
 
 const drawerWidth = 240;
 
@@ -119,7 +110,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer({alert}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [bg, setbg] = React.useState({});
@@ -129,7 +120,6 @@ export default function MiniDrawer() {
  );
   
   
-    const alert = useAlert();
     const dispatch = useDispatch();
   
 
@@ -142,15 +132,6 @@ export default function MiniDrawer() {
   const handler = (e) => setMatch(e.matches);
   window.matchMedia("(max-width: 700px)").addEventListener("change", handler);
   const userName = user.name;
-
-  const loanDetails = [
-    { label: "Amount Taken", price: "₦00,000" },
-    { label: "Interest Accrued", price: "₦00,000" },
-    { label: "Total Refund Due", price: "₦00,000" },
-    { label: "Repayment Date", price: "₦00,000" },
-  ];
-
-
   
 
   const handleDrawerOpen = () => {
@@ -293,97 +274,7 @@ export default function MiniDrawer() {
           )}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Container>
-          <Grid container spacing={2} style={{ fontSize: ".8rem" }}>
-            <Grid
-              item
-              xs={12}
-              md={6}
-              style={{ fontSize: ".6rem" }}
-              className={grid_item}
-            >
-              <div className={dash_container}>
-                <div className={heading}>
-                  <p>Quick Loan</p>
-                </div>
-                <div className={body}>
-                  <p>Need urgent cash?</p>
-                  <p>You are just one click away</p>
-                  <div className={apply}>
-                    <ClickButton
-                      variant="secondary"
-                      narrow
-                      text="Apply for loan"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <div className={dash_container}>
-                <div className={heading}>
-                  <p>Loan Details</p>
-                </div>
-                <div className={body}>
-                  <Grid container spacing={3.7}>
-                    {loanDetails.map((item) => (
-                      <>
-                        <Grid
-                          item
-                          xs={6}
-                          style={{ fontSize: ".6rem" }}
-                          className={grid_item}
-                        >
-                          {item.label}
-                        </Grid>
-                        <Grid
-                          item
-                          xs={6}
-                          style={{ fontSize: ".6rem" }}
-                          className={grid_item}
-                        >
-                          {item.price}
-                        </Grid>
-                      </>
-                    ))}
-                  </Grid>
-                </div>
-              </div>
-            </Grid>
-          </Grid>
-        </Container>
-        <Container>
-          <div className={cta}>
-            <p>Quick Actions</p>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={4} className={grid_item}>
-                <ClickButton variant="ocean" narrow text="Repay Loan" />
-              </Grid>
-              <Grid item xs={12} md={4} className={grid_item}>
-                <ClickButton variant="neon" narrow text="Build Credit Score" />
-              </Grid>
-              <Grid item xs={12} md={4} className={grid_item}>
-                <ClickButton
-                  variant="primary"
-                  narrow
-                  text="Referral Earnings"
-                />
-              </Grid>
-            </Grid>
-          </div>
-        </Container>
-        <Container>
-          <div className={recent}>
-            <p>Recent Transactions</p>
-            <p>
-              You have not made any transaction yet. When you take a loan or
-              make a repayment, the details of your transaction will appear here
-            </p>
-          </div>
-        </Container>
-      </Box>
+      <DashboardHome alert = {alert} fullName={user.name}/>
     </Box>
   );
 }
