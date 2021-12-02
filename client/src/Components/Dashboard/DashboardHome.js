@@ -11,7 +11,7 @@ import {useDispatch,useSelector} from "react-redux"
 import Select from 'react-select'
 import { requestLoan,getLoanHistory,clearError  } from '../../actions/userActions'
 import orange from "../../assets/orange.svg"
-import {main_container,loanHistory_container,main_container_centered,form_container,paragraph,loan_buttons,input_style,table_container} from "../../stylesheets/applyLoan.module.css"
+import {loan_image_container,main_container,loanHistory_container,main_container_centered,form_container,paragraph,loan_buttons,input_style,table_container} from "../../stylesheets/applyLoan.module.css"
 import {
     dash_container,
     heading,
@@ -51,7 +51,7 @@ const DashboardHome = ({fullName}) => {
             alert.error(error);
             dispatch(clearError());
         }
-     }, [])
+     }, [error,alert])
 
     const handleSelectChange = (option) => {
         setUpdatedInfo(prev=>({...prev,bankName:option.value}));
@@ -225,7 +225,7 @@ const DashboardHome = ({fullName}) => {
                                 <ClickButton variant="secondary" narrow text="Confirm" click={()=>{
                                     dispatch(requestLoan(updatedInfo))
                                     if (error) {
-                                        console.log(error)
+                                        alert.error(error)
                                     }else{
                                         setShowModalContent("sixth")
                                     }
@@ -331,7 +331,10 @@ const DashboardHome = ({fullName}) => {
                     <p>Recent Transactions</p>
                      {loanHistory ? (loanHistory.map((history)=>(
                         <div className={loanHistory_container}>
-                            <span><img src={orange} alt="loan " /><p className={paragraph}>{String(history.createdAt).substring(0,10)}</p></span>
+                            <div className={loan_image_container}>
+                                <img src={orange} alt="loan " />
+                                <p style={{fontSize:"1.2rem",lineHeight:"30px",font:"lato"}}>Loan Disbursed<span><p>{String(history.createdAt).substring(0,10)}</p></span></p>
+                            </div>
                             <h4 className={paragraph}>{`+ ₦${history.amount}`}</h4>
                         </div>
                     ))):(

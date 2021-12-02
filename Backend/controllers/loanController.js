@@ -27,7 +27,7 @@ export const getLoans = async(req,res,next)=>{
 
     try {
 
-        const loans = await LoanModel.find({user:user._id});
+        const loans = await LoanModel.find({user:user._id}).sort({createdAt:-1});
 
         res.status(200).json({
             success: true,

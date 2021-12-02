@@ -51,7 +51,12 @@
     justify-content: space-between;
     align-items: center;
 }
-
+.loan_image_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+}
 @media screen and (max-width: 500px) {
     .loan_buttons{
         flex-direction: column;
