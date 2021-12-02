@@ -5,11 +5,13 @@ import Divider from '@mui/material/Divider';
 import Modal from '@mui/material/Modal';
 import { styled } from "@mui/material/styles";
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { useAlert } from "react-alert";
 import {useDispatch,useSelector} from "react-redux"
 import Select from 'react-select'
-import { requestLoan,clearError  } from '../../actions/userActions'
-import {main_container,main_container_centered,form_container,paragraph,loan_buttons,input_style,table_container} from "../../stylesheets/applyLoan.module.css"
+import { requestLoan,getLoanHistory,clearError  } from '../../actions/userActions'
+import orange from "../../assets/orange.svg"
+import {main_container,loanHistory_container,main_container_centered,form_container,paragraph,loan_buttons,input_style,table_container} from "../../stylesheets/applyLoan.module.css"
 import {
     dash_container,
     heading,
@@ -20,9 +22,10 @@ import {
     grid_item
   } from "../../stylesheets/dashboard.module.css";
   import ClickButton from "../Button";
+ 
 
 /* eslint-disable react/prop-types */
-const DashboardHome = ({fullName,alert}) => {
+const DashboardHome = ({fullName}) => {
 
     const [open, setOpen] = useState(false);
     const [showModalContent, setShowModalContent] = useState("first")
@@ -36,10 +39,19 @@ const DashboardHome = ({fullName,alert}) => {
     });
 
     const dispatch = useDispatch()
+    const alert = useAlert();
 
-    const {error} = useSelector(state=>state.userReducer)
+    const {error,loanHistory} = useSelector(state=>state.userReducer)
 
     const {firstName,lastName,amount,accountNumber,bankName,bvn} = updatedInfo
+
+    useEffect(() => {
+        dispatch(getLoanHistory())
+        if (error) {
+            alert.error(error);
+            dispatch(clearError());
+        }
+     }, [])
 
     const handleSelectChange = (option) => {
         setUpdatedInfo(prev=>({...prev,bankName:option.value}));
@@ -213,8 +225,7 @@ const DashboardHome = ({fullName,alert}) => {
                                 <ClickButton variant="secondary" narrow text="Confirm" click={()=>{
                                     dispatch(requestLoan(updatedInfo))
                                     if (error) {
-                                        alert.error(error);
-                                        dispatch(clearError());
+                                        console.log(error)
                                     }else{
                                         setShowModalContent("sixth")
                                     }
@@ -318,10 +329,17 @@ const DashboardHome = ({fullName,alert}) => {
                 <Container>
                 <div className={recent}>
                     <p>Recent Transactions</p>
-                    <p>
-                    You have not made any transaction yet. When you take a loan or
-                    make a repayment, the details of your transaction will appear here
-                    </p>
+                     {loanHistory ? (loanHistory.map((history)=>(
+                        <div className={loanHistory_container}>
+                            <span><img src={orange} alt="loan " /><p className={paragraph}>{String(history.createdAt).substring(0,10)}</p></span>
+                            <h4 className={paragraph}>{`+ ₦${history.amount}`}</h4>
+                        </div>
+                    ))):(
+                        <p>
+                            You have not made any transaction yet. When you take a loan or
+                            make a repayment, the details of your transaction will appear here
+                        </p>
+                    )}
                 </div>
                 </Container>
             </Box>

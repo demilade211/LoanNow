@@ -15,6 +15,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useAlert } from "react-alert";
 import { FiSliders as SettingsIcon } from "react-icons/fi";
 import { useDispatch,useSelector } from "react-redux";
 import { logOut } from "../../actions/userActions";
@@ -35,7 +36,6 @@ import {
 } from "../../stylesheets/dashboard.module.css";
 import DashboardHome from "./DashboardHome";
 
-/* eslint-disable react/prop-types */
 
 const drawerWidth = 240;
 
@@ -110,7 +110,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer({alert}) {
+export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [bg, setbg] = React.useState({});
@@ -120,6 +120,7 @@ export default function MiniDrawer({alert}) {
  );
   
   
+    const alert = useAlert();
     const dispatch = useDispatch();
   
 
@@ -132,6 +133,8 @@ export default function MiniDrawer({alert}) {
   const handler = (e) => setMatch(e.matches);
   window.matchMedia("(max-width: 700px)").addEventListener("change", handler);
   const userName = user.name;
+
+
   
 
   const handleDrawerOpen = () => {
@@ -274,7 +277,7 @@ export default function MiniDrawer({alert}) {
           )}
         </List>
       </Drawer>
-      <DashboardHome alert = {alert} fullName={user.name}/>
+      <DashboardHome fullName={userName}/>
     </Box>
   );
 }
