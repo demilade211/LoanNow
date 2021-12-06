@@ -51,7 +51,7 @@ const DashboardHome = ({fullName}) => {
             alert.error(error);
             dispatch(clearError());
         }
-     }, [error,alert])
+     }, [dispatch,error,alert])
 
     const handleSelectChange = (option) => {
         setUpdatedInfo(prev=>({...prev,bankName:option.value}));
