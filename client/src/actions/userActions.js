@@ -1,15 +1,15 @@
 import axios from "axios";
 import * as types from "../types/userTypes";
 
-const Axios = axios.create({
-    baseURL: "https://loannow-api0.herokuapp.com/api/v1",
-})
+// const Axios = axios.create({
+//     baseURL: "https://loannow-api0.herokuapp.com/api/v1",
+// })
 // Login
 export const login = (email,password) => async (dispatch) =>{
      try {
          dispatch({type: types.LOGIN_REQUEST })
 
-         const {data} = await Axios.post("/login",{email,password})
+         const {data} = await axios.post("/api/v1/login",{email,password})
 
          dispatch({
              type: types.LOGIN_SUCCESS,
@@ -28,7 +28,7 @@ export const registerUser = (userData) => async (dispatch) =>{
     try {
         dispatch({type: types.REGISTER_USER_REQUEST })
 
-        const {data} = await Axios.post("/register",userData)
+        const {data} = await axios.post("/register",userData)
 
         dispatch({
             type: types.REGISTER_USER_SUCCESS,
@@ -47,7 +47,7 @@ export const requestLoan = (userData) => async (dispatch) =>{
     try {
         dispatch({type: types.APPLY_FOR_LOAN_REQUEST })
 
-        const {data} = await Axios.post("/loan",userData)
+        const {data} = await axios.post("/api/v1/loan",userData)
 
         dispatch({
             type: types.APPLY_FOR_LOAN_SUCCESS,
@@ -66,7 +66,7 @@ export const getLoanHistory = () => async (dispatch) =>{
     try {
         dispatch({type: types.GET_LOAN_HISTORY_REQUEST })
 
-        const {data} = await Axios.get("/loan")
+        const {data} = await axios.get("/api/v1/loan")
 
         dispatch({
             type: types.GET_LOAN_HISTORY_SUCCESS,
@@ -85,7 +85,7 @@ export const loadUser = () => async (dispatch) =>{
     try {
         dispatch({type: types.LOAD_USER_REQUEST })
 
-        const {data} = await Axios.get("/me")
+        const {data} = await axios.get("/api/v1/me")
 
         dispatch({
             type: types.LOAD_USER_SUCCESS,
@@ -104,7 +104,7 @@ export const loadUser = () => async (dispatch) =>{
 //     try {
 //         dispatch({type: types.UPDATE_PROFILE_REQUEST })
 
-//         const {data} = await Axios.put("/me/update",userData)
+//         const {data} = await axios.put("/api/v1/me/update",userData)
 
 //         dispatch({
 //             type: types.UPDATE_PROFILE_SUCCESS,
@@ -129,7 +129,7 @@ export const forgotPassword = (email) => async (dispatch) =>{
             }
         }
 
-        const {data} = await Axios.post("/password/forgot",email,config)
+        const {data} = await axios.post("/api/v1/password/forgot",email,config)
 
         dispatch({
             type: types.FORGOT_PASSWORD_SUCCESS,
@@ -154,7 +154,7 @@ export const resetPassword = (token,passwords) => async (dispatch) =>{
             }
         }
 
-        const {data} = await Axios.put(`/password/reset/${token}`,passwords,config)
+        const {data} = await axios.put(`/api/v1/password/reset/${token}`,passwords,config)
 
         dispatch({
             type: types.NEW_PASSWORD_SUCCESS,
@@ -172,7 +172,7 @@ export const resetPassword = (token,passwords) => async (dispatch) =>{
 export const logOut = () => async (dispatch) =>{
     try {
 
-        await Axios.get("/logout")
+        await axios.get("/api/v1/logout")
 
         dispatch({
             type: types.LOGOUT_SUCCESS,

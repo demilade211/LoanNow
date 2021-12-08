@@ -74,10 +74,10 @@ button{
     border-radius: .2rem;
 }
 .neon--narrow{
-   background: #77EE83;
+   background: #00ff00;
    color: #fff;
     padding: .6rem 2.3rem;
-    border: 1px solid #77EE83;
+    border: 1px solid #00ff00;
     border-radius: .2rem;
 }
 .ocean--narrow{

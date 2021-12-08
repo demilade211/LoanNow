@@ -28,6 +28,7 @@ import {
 const DashboardHome = ({fullName}) => {
 
     const [open, setOpen] = useState(false);
+    const [showError, setShowError] = useState(false);
     const [showModalContent, setShowModalContent] = useState("first")
     const [updatedInfo, setUpdatedInfo] = useState({
         firstName: "",
@@ -59,6 +60,7 @@ const DashboardHome = ({fullName}) => {
 
 
     const handleChange = (e) => {
+        setShowError(false)
         const {name,value} = e.target
         setUpdatedInfo(prev=>({...prev,[name]:value}))
     }
@@ -137,9 +139,9 @@ const DashboardHome = ({fullName}) => {
                                 <p className={paragraph}>You qualify for a maximum of ₦10,000 at this time.</p><br/>
                                 <p className={paragraph}>Select Loan Amount</p><br/>
                                 <div className={loan_buttons} style={{display:"flex",width:"100%",justifyContent:"space-between"}}>
-                                    <ClickButton variant={`${amount==="3500"?"clicked" : "unclicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"3500"}))} text="&#8358;3,500" />
-                                    <ClickButton variant={`${amount==="5000"?"clicked" : "unclicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"5000"}))} text="&#8358;5,000" />
-                                    <ClickButton variant={`${amount==="10000"?"clicked" : "unclicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"10000"}))} text="&#8358;10,000" />
+                                    <ClickButton variant={`${amount==="3500"?"unclicked" : "clicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"3500"}))} text="&#8358;3,500" />
+                                    <ClickButton variant={`${amount==="5000"?"unclicked" : "clicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"5000"}))} text="&#8358;5,000" />
+                                    <ClickButton variant={`${amount==="10000"?"unclicked" : "clicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"10000"}))} text="&#8358;10,000" />
                                 </div>
                                 <div style={{display:"flex",width:"100%",justifyContent:"center",marginTop:"50px"}}>
                                     <ClickButton 
@@ -167,14 +169,16 @@ const DashboardHome = ({fullName}) => {
                                     <input required type="number" onChange={handleChange} placeholder="Account Number" name="accountNumber" className={input_style}/>
                                     <input required type="number" onChange={handleChange} placeholder="BVN" name="bvn" className={input_style}/>
                                     <ClickButton variant="secondary" narrow text="Proceed with Application" click={(e)=>{
+                                        
                                         e.preventDefault();
                                        if(!firstName || !lastName || !amount || !accountNumber || !bvn || !bankName){
-                                           alert.show("Please fill in all forms")
+                                           setShowError(true)
                                        }else{
                                            setShowModalContent("third")
                                         }
                                        
                                     }}/>
+                                    {showError &&(<p className={paragraph} style={{color: "red"}}>All fields are required</p>)}
                                 </form>
                            </div>
                         </div>}
