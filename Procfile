@@ -1,1 +1,1 @@
-web: babel-node Backend/server.js
+web: npm start
