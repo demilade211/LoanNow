@@ -16,7 +16,7 @@ export const login = (email,password) => async (dispatch) =>{
      } catch (error) {
          dispatch({
              type: types.LOGIN_FAIL,
-             payload: error.response.data.errMessage
+             payload: error.response.data.message
          })
      }
 }
@@ -26,7 +26,7 @@ export const registerUser = (userData) => async (dispatch) =>{
     try {
         dispatch({type: types.REGISTER_USER_REQUEST })
 
-        const {data} = await axios.post("/register",userData)
+        const {data} = await axios.post("/api/v1/register",userData)
 
         dispatch({
             type: types.REGISTER_USER_SUCCESS,
@@ -35,7 +35,7 @@ export const registerUser = (userData) => async (dispatch) =>{
     } catch (error) {
         dispatch({
             type: types.REGISTER_USER_FAIL,
-            payload: error.response.data.errMessage
+            payload: error.response.data.message
         })
     }
 }
@@ -54,7 +54,7 @@ export const requestLoan = (userData) => async (dispatch) =>{
     } catch (error) {
         dispatch({
             type: types.APPLY_FOR_LOAN_FAIL,
-            payload: error.response.data.errMessage
+            payload: error.response.data.message
         })
     }
 }
@@ -73,7 +73,7 @@ export const getLoanHistory = () => async (dispatch) =>{
     } catch (error) {
         dispatch({
             type: types.GET_LOAN_HISTORY_FAIL,
-            payload: error.response.data.errMessage
+            payload: error.response.data.message
         })
     }
 }
@@ -92,7 +92,7 @@ export const loadUser = () => async (dispatch) =>{
     } catch (error) {
         dispatch({
             type: types.LOAD_USER_FAIL,
-            payload: error.response.data.errMessage
+            payload: error.response.data.message
         })
     }
 }

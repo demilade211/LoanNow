@@ -29,11 +29,12 @@ const DashboardHome = ({fullName}) => {
 
     const [open, setOpen] = useState(false);
     const [showError, setShowError] = useState(false);
+    const [showAmountError, setShowAmountError] = useState(false);
     const [showModalContent, setShowModalContent] = useState("first")
     const [updatedInfo, setUpdatedInfo] = useState({
         firstName: "",
         lastName: "",
-        amount: "3500",
+        amount: "00.00",
         accountNumber: "",
         bankName: "",
         bvn: ""
@@ -45,6 +46,7 @@ const DashboardHome = ({fullName}) => {
     const {error,loanHistory} = useSelector(state=>state.userReducer)
 
     const {firstName,lastName,amount,accountNumber,bankName,bvn} = updatedInfo
+    const interest = amount === "00.00"?"00.00":500;
 
     useEffect(() => {
         dispatch(getLoanHistory())
@@ -73,13 +75,7 @@ const DashboardHome = ({fullName}) => {
 
     const handleClose = () => {
         setOpen(false)
-        setUpdatedInfo(prev=>({...prev,
-        firstName: "",
-        lastName: "",
-        amount: "3500",
-        accountNumber: "",
-        bankName: "",
-        bvn: ""}));
+        setShowAmountError(false)
     };
 
     const matches = useMediaQuery('(min-width:600px)');
@@ -111,10 +107,10 @@ const DashboardHome = ({fullName}) => {
       }));
 
     const loanDetails = [
-        { label: "Amount Taken", price: "₦00,000" },
-        { label: "Interest Accrued", price: "₦00,000" },
-        { label: "Total Refund Due", price: "₦00,000" },
-        { label: "Repayment Date", price: "₦00,000" },
+        { label: "Amount Taken", price:` ₦${amount}` },
+        { label: "Interest Accrued", price: `₦${interest}` },
+        { label: "Total Refund Due", price: ` ₦${interest === "00.00"?"00.00":Number(amount)+500}` },
+        { label: "Repayment Date", price: "8, July 2021" },
       ];
     return (
         <>
@@ -143,13 +139,18 @@ const DashboardHome = ({fullName}) => {
                                     <ClickButton variant={`${amount==="5000"?"unclicked" : "clicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"5000"}))} text="&#8358;5,000" />
                                     <ClickButton variant={`${amount==="10000"?"unclicked" : "clicked"}`} click={()=>setUpdatedInfo(prev=>({...prev,amount:"10000"}))} text="&#8358;10,000" />
                                 </div>
+                                {showAmountError &&(<p className={paragraph} style={{color: "red", marginTop:"20px"}}>Choose an amount</p>)}
                                 <div style={{display:"flex",width:"100%",justifyContent:"center",marginTop:"50px"}}>
                                     <ClickButton 
                                     variant="secondary" 
                                     narrow 
                                     text="Proceed with Application" 
                                     click={()=>{
+                                        if(amount === "00.00"){
+                                            setShowAmountError(true)
+                                        }else{
                                         setShowModalContent("second")
+                                        }
                                     }}/>
                                 </div>
                             </div> 
