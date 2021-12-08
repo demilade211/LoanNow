@@ -1,9 +1,7 @@
 import axios from "axios";
 import * as types from "../types/userTypes";
 
-// const Axios = axios.create({
-//     baseURL: "https://loannow-api0.herokuapp.com/api/v1",
-// })
+
 // Login
 export const login = (email,password) => async (dispatch) =>{
      try {
