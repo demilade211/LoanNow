@@ -164,8 +164,8 @@ const DashboardHome = ({fullName}) => {
                            <div className={main_container_centered}>
                                 <p className={paragraph}>You are almost there, we just need you to fill the form below.</p><br/>
                                 <form className={form_container}>
-                                    <input required type="text" onChange={handleChange} placeholder="Wale" name="firstName" className={input_style}/>
-                                    <input required type="text" onChange={handleChange} placeholder="Adenuga" name="lastName" className={input_style}/>
+                                    <input required type="text" onChange={handleChange} placeholder="First Name" name="firstName" className={input_style}/>
+                                    <input required type="text" onChange={handleChange} placeholder="Last Name" name="lastName" className={input_style}/>
                                     <Select options={options} placeholder="Bank Name" name="Bank Name" onChange={handleSelectChange} />
                                     <input required type="number" onChange={handleChange} placeholder="Account Number" name="accountNumber" className={input_style}/>
                                     <input required type="number" onChange={handleChange} placeholder="BVN" name="bvn" className={input_style}/>
